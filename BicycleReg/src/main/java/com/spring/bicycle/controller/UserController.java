@@ -29,16 +29,16 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.support.SessionStatus;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
-import com.withus.spring.GenericValidator;
-import com.withus.spring.domain.InquiryDTO;
-import com.withus.spring.domain.PagingDTO;
-import com.withus.spring.domain.SellerDTO;
-import com.withus.spring.domain.UserDTO;
-import com.withus.spring.service.InquiryService;
-import com.withus.spring.service.InquiryanswerService;
-import com.withus.spring.service.PagingService;
-import com.withus.spring.service.SellerService;
-import com.withus.spring.service.UserService;
+import com.spring.bicycle.GenericValidator;
+import com.spring.bicycle.domain.InquiryDTO;
+import com.spring.bicycle.domain.PagingDTO;
+import com.spring.bicycle.domain.SellerDTO;
+import com.spring.bicycle.domain.UserDTO;
+import com.spring.bicycle.service.InquiryService;
+import com.spring.bicycle.service.InquiryanswerService;
+import com.spring.bicycle.service.PagingService;
+import com.spring.bicycle.service.SellerService;
+import com.spring.bicycle.service.UserService;
 
 @Controller
 public class UserController {

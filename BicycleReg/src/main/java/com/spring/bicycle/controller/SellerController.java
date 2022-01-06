@@ -31,17 +31,16 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.multipart.MultipartHttpServletRequest;
 
-import com.google.gson.JsonObject;
-import com.withus.spring.domain.InquiryanswerDTO;
-import com.withus.spring.domain.PagingDTO;
-import com.withus.spring.domain.ProjectFundingDTO;
-import com.withus.spring.service.AdminService;
-import com.withus.spring.service.InquiryService;
-import com.withus.spring.service.InquiryanswerService;
-import com.withus.spring.service.PagingService;
-import com.withus.spring.service.ProjectFundingService;
-import com.withus.spring.service.SellerMainService;
-import com.withus.spring.service.SellerService;
+import com.spring.bicycle.domain.InquiryanswerDTO;
+import com.spring.bicycle.domain.PagingDTO;
+import com.spring.bicycle.domain.ProjectFundingDTO;
+import com.spring.bicycle.service.AdminService;
+import com.spring.bicycle.service.InquiryService;
+import com.spring.bicycle.service.InquiryanswerService;
+import com.spring.bicycle.service.PagingService;
+import com.spring.bicycle.service.ProjectFundingService;
+import com.spring.bicycle.service.SellerMainService;
+import com.spring.bicycle.service.SellerService;
 
 @Controller
 @RequestMapping("/seller")
@@ -302,56 +301,6 @@ public class SellerController {
 		return "seller/updateOkProject";
 	}
 
-	// write_project 시 파일 업로드 관련
-	@RequestMapping(value = "imageUpload", method = RequestMethod.POST)
-	@ResponseBody
-	public String fileUpload(HttpServletRequest req, HttpServletResponse resp, MultipartHttpServletRequest multiFIle)
-			throws Exception {
-		JsonObject json = new JsonObject();
-		PrintWriter printWriter = null;
-		OutputStream out = null;
-		MultipartFile file = multiFIle.getFile("upload");
-		if (file != null) {
-			if (file.getSize() > 0 && com.nimbusds.oauth2.sdk.util.StringUtils.isNotBlank(file.getName())) {
-				if (file.getContentType().toLowerCase().startsWith("image/")) {
-					try {
-						String fileName = file.getName();
-						byte[] bytes = file.getBytes();
-						String uploadPath = req.getServletContext().getRealPath("/img");
-
-						File uploadFile = new File(uploadPath);
-						if (!uploadFile.exists()) {
-							uploadFile.mkdirs();
-						}
-						fileName = UUID.randomUUID().toString();
-						uploadPath = uploadPath + "/" + fileName;
-						out = new FileOutputStream(new File(uploadPath));
-						out.write(bytes);
-
-						printWriter = resp.getWriter();
-						resp.setContentType("text/html");
-						String fileUrl = req.getContextPath() + "/img/" + fileName;
-
-						json.addProperty("uploaded", 1);
-						json.addProperty("fileName", fileName);
-						json.addProperty("url", fileUrl);
-						printWriter.println(json);
-					} catch (Exception e) {
-						e.printStackTrace();
-					} finally {
-						if (out != null) {
-							out.close();
-						}
-						if (printWriter != null) {
-							printWriter.close();
-						}
-					}
-				}
-			}
-		}
-
-		return null;
-	}
 //	@InitBinder
 //	public void initBinder(WebDataBinder binder) {
 //		binder.setValidator(new SellerWriteProjectValidator());

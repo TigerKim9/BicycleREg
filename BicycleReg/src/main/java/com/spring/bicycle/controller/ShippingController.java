@@ -9,7 +9,8 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import com.withus.spring.service.ShippingService;
+import com.spring.bicycle.service.ShippingService;
+
 
 @Controller
 @RequestMapping("/**")

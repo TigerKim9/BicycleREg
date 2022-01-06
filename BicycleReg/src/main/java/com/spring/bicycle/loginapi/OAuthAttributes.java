@@ -2,7 +2,7 @@ package com.spring.bicycle.loginapi;
 
 import java.util.Map;
 
-import com.withus.spring.domain.UserDTO;
+import com.spring.bicycle.domain.UserDTO;
 
 import lombok.Getter;
 import lombok.Setter;

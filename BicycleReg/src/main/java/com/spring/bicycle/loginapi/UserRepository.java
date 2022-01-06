@@ -5,7 +5,8 @@ import java.util.Optional;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
-import com.withus.spring.domain.UserDTO;
+import com.spring.bicycle.domain.UserDTO;
+
 
 @Repository
 public interface UserRepository extends JpaRepository<UserDTO, Long> {

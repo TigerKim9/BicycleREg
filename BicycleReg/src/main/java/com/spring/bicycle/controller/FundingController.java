@@ -20,21 +20,22 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
-import com.withus.spring.domain.FundedDTO;
-import com.withus.spring.domain.InquiryDTO;
-import com.withus.spring.domain.LikesDTO;
-import com.withus.spring.domain.NoticeDTO;
-import com.withus.spring.domain.PagingDTO;
-import com.withus.spring.domain.ProjectFundingDTO;
-import com.withus.spring.domain.UserShpDTO;
-import com.withus.spring.service.AdminService;
-import com.withus.spring.service.FundedService;
-import com.withus.spring.service.InquiryService;
-import com.withus.spring.service.InquiryanswerService;
-import com.withus.spring.service.PagingService;
-import com.withus.spring.service.ProjectFundingService;
-import com.withus.spring.service.ShippingService;
-import com.withus.spring.service.UserService;
+import com.spring.bicycle.domain.FundedDTO;
+import com.spring.bicycle.domain.InquiryDTO;
+import com.spring.bicycle.domain.LikesDTO;
+import com.spring.bicycle.domain.NoticeDTO;
+import com.spring.bicycle.domain.PagingDTO;
+import com.spring.bicycle.domain.ProjectFundingDTO;
+import com.spring.bicycle.domain.UserShpDTO;
+import com.spring.bicycle.service.AdminService;
+import com.spring.bicycle.service.FundedService;
+import com.spring.bicycle.service.InquiryService;
+import com.spring.bicycle.service.InquiryanswerService;
+import com.spring.bicycle.service.PagingService;
+import com.spring.bicycle.service.ProjectFundingService;
+import com.spring.bicycle.service.ShippingService;
+import com.spring.bicycle.service.UserService;
+
 
 @Controller
 @RequestMapping("/**")
