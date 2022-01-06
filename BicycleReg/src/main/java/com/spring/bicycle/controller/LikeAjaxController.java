@@ -11,8 +11,9 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.withus.spring.domain.LikesDTO;
-import com.withus.spring.service.FundedService;
+import com.spring.bicycle.domain.LikesDTO;
+import com.spring.bicycle.service.FundedService;
+
 
 @RestController
 @RequestMapping("/**")
