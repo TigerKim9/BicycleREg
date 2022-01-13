@@ -21,8 +21,6 @@ public class SessionUser implements Serializable {
 		this.picture = user.getPicture();
 	}
 	
-	public SessionUser() {
-		
-	}
+	public SessionUser() {}
 
 }
