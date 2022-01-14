@@ -17,7 +17,13 @@
   <!-- 만든 React 컴포넌트를 실행. -->
   <script>
   const root = document.getElementById("root");
-  const span = React.createElement("span");
+  const span = React.createElement("span"
+  ,{
+    id : "title",
+    onmouseenter: () => console.log("mouse enter"),
+
+  },
+  "This is test page");
   ReactDOM.render(span, root);
   </script>
 
