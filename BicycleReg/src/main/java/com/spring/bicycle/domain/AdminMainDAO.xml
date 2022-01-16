@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.withus.spring.domain.AdminMainDAO">
+<mapper namespace="com.spring.bicycle.domain.AdminMainDAO">
 
 	<select id="admin_category"
-		resultType="com.withus.spring.domain.SellerMainDTO">
+		resultType="com.spring.bicycle.domain.SellerMainDTO">
 		select pf_category category,count(*) as count from project_funding pf group
 		by pf_category ;
 	</select>
 	<select id="admin_totalPrice"
-		resultType="com.withus.spring.domain.SellerMainDTO">
+		resultType="com.spring.bicycle.domain.SellerMainDTO">
 		SELECT
 		SUM(IF(month = 'Jan', sumprice, 0)) AS 'Jan',
 		SUM(IF(month = 'Feb', sumprice, 0)) AS 'Feb',
@@ -32,7 +32,7 @@
 		GROUP BY DATE_FORMAT(f.f_fundingdate, "%m-%Y")) as sub;
 	</select>
 	<select id="admin_lastTotalPrice"
-		resultType="com.withus.spring.domain.SellerMainDTO">
+		resultType="com.spring.bicycle.domain.SellerMainDTO">
 		SELECT
 		SUM(IF(month = 'Jan', sumprice, 0)) AS 'Jan',
 		SUM(IF(month = 'Feb', sumprice, 0)) AS 'Feb',

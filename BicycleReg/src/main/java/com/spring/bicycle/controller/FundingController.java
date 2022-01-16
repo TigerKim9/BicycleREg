@@ -26,14 +26,12 @@ import com.spring.bicycle.domain.LikesDTO;
 import com.spring.bicycle.domain.NoticeDTO;
 import com.spring.bicycle.domain.PagingDTO;
 import com.spring.bicycle.domain.ProjectFundingDTO;
-import com.spring.bicycle.domain.UserShpDTO;
 import com.spring.bicycle.service.AdminService;
 import com.spring.bicycle.service.FundedService;
 import com.spring.bicycle.service.InquiryService;
 import com.spring.bicycle.service.InquiryanswerService;
 import com.spring.bicycle.service.PagingService;
 import com.spring.bicycle.service.ProjectFundingService;
-import com.spring.bicycle.service.ShippingService;
 import com.spring.bicycle.service.UserService;
 
 
@@ -43,7 +41,6 @@ public class FundingController {
 
    private FundedService fundedService;
    private ProjectFundingService projFundingService;
-   private ShippingService shippingService;
    private UserService userService;
    private InquiryService InquiryService;
    private InquiryanswerService inquiryanswerService;
@@ -53,13 +50,12 @@ public class FundingController {
    @Autowired
    public void setService(InquiryanswerService inquiryanswerService, FundedService fundedService,
          ProjectFundingService projFundingService, InquiryService inquiryService, UserService userService,
-         ShippingService shippingService, PagingService pagingService, AdminService adminService) {
+         PagingService pagingService, AdminService adminService) {
       this.inquiryanswerService = inquiryanswerService;
       this.fundedService = fundedService;
       this.projFundingService = projFundingService;
       this.InquiryService = inquiryService;
       this.userService = userService;
-      this.shippingService = shippingService;
       this.pagingService=pagingService;
       this.adminService=adminService;
    }
@@ -305,15 +301,9 @@ public class FundingController {
       
       String useremail = printEmail(principal);
       List<String> prnums = fundedService.myprnumlist(useremail);
-      List<UserShpDTO> deliverys = new ArrayList<UserShpDTO>();
       model.addAttribute("gettitle",fundedService.getcnt(useremail));
       List<ProjectFundingDTO> title = new ArrayList<ProjectFundingDTO>();
       
-      for (int i = 0; i < prnums.size(); i++) {
-         UserShpDTO shp = new UserShpDTO();
-         shp = shippingService.dvnumByShp(prnums.get(i));
-         deliverys.add(shp);
-      }
       
       
       List<FundedDTO> user = fundedService.myfundedlist(useremail);
@@ -334,7 +324,6 @@ public class FundingController {
       model.addAttribute("viewAll", selectBoard);
       
       
-      model.addAttribute("delList", deliverys);
       model.addAttribute("myflist", fundedService.myfundedlist(useremail));
       return "main/myfundedlist";
    }
